@@ -20,7 +20,7 @@ class MovieDetail {
       required this.plot,
       required this.image});
 
-  factory MovieDetail.fromJson(dynamic jsonObject){
+  factory MovieDetail.fromJson(dynamic jsonObject) {
     return MovieDetail(
         title: jsonObject["Title"],
         year: jsonObject["Year"],

@@ -2,9 +2,10 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:movie_app/movie_detail_item.dart';
 import 'movie.dart';
 import 'movie_item.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -20,11 +21,6 @@ class _SearchState extends State<Search> {
     http.Response response = await http
         .get(Uri.parse("https://www.omdbapi.com/?s=$value&apikey=7708b4b2"));
     var jsonObject = jsonDecode(response.body);
-    var responseState = jsonObject["Response"];
-    print(responseState);
-    // if(responseState == "False"){
-    //   throw ("No Movie Found");
-    // }
     List<Movie> _movie;
     if (response.statusCode == 200) {
       var jsonArray = jsonObject["Search"] as List;
@@ -47,6 +43,7 @@ class _SearchState extends State<Search> {
             child: TextField(
               cursorColor: Colors.black,
               onSubmitted: (String value) {
+
                 movie = fetchMovie(value);
                 setState(() {});
               },
@@ -92,22 +89,31 @@ class _SearchState extends State<Search> {
                   child: ListView.builder(
                     itemCount: movies!.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return MovieItem(movie: movies[index]);
+                      return GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MovieDetailItem(movieInput: movies[index].title)),
+                          );
+                        },
+                        child: MovieItem(movie: movies[index]),
+                      );
                     },
                   ),
                 );
               } else if (snapshot.hasError) {
                 return const Center(
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text("No Movie Found",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                        ),),
-                    ));
-              }
-              else{
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    "No Movie Found",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                    ),
+                  ),
+                ));
+              } else {
                 return Text("");
               }
             })

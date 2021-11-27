@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'movie.dart';
 
 class MovieItem extends StatelessWidget {
-  final Movie movie;
-  const MovieItem({required this.movie});
+  Movie movie;
+  MovieItem({required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +12,7 @@ class MovieItem extends StatelessWidget {
     if (movie.image != "N/A") {
       isImage = true;
     }
-    return
-      Container(
+    return Container(
       padding: const EdgeInsets.all(4),
       height: 120,
       child: Card(
@@ -25,10 +24,12 @@ class MovieItem extends StatelessWidget {
                     child: Image.network(
                     movie.image,
                     fit: BoxFit.fitHeight,
-                      width: 90,
-                  )
-            )
-                : Image.asset("assets/images/preview.jpg", width: 90,),
+                    width: 90,
+                  ))
+                : Image.asset(
+                    "assets/images/preview.jpg",
+                    width: 90,
+                  ),
             Expanded(
                 child: Container(
               padding: const EdgeInsets.fromLTRB(20, 5, 5, 0),
