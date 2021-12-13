@@ -121,7 +121,9 @@ class _WatchListSearchState extends State<WatchListSearch> {
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
-              return Text("data");
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             },
           ),
         ),

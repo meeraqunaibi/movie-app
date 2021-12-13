@@ -85,7 +85,9 @@ class _WatchListPageState extends State<WatchListPage> {
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return Text("data");
+          return Center(
+            child: CircularProgressIndicator(),
+          );
         },
       ),
     );

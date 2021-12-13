@@ -116,11 +116,10 @@ class _MovieItemState extends State<MovieItem> {
                     DatabaseProvider.db.insert(movie!);
                     return Text("");
                   } else if (snapshot.hasError) {
-                    return const Center(
+                    return Center(
                         child: Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        "No Movie Found",
+                      child: Text('${snapshot.error}',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
