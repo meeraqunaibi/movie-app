@@ -19,7 +19,7 @@ The Text is used to enter the movie title to search for, the listview widget dis
 3.	Type
 4.	Image
 
-![](img.png)
+![](assets/images/img.png)
 
 
 
@@ -39,9 +39,9 @@ Image
 
 Plot displayed above is a short plot, when tapped on will display long plot.
 
-![](img_1.png)
-![](img_3.png)
-![](img_2.png)
+![](assets/images/img_1.png)
+![](assets/images/img_3.png)
+![](assets/images/img_2.png)
 
 
 
@@ -50,25 +50,25 @@ Plot displayed above is a short plot, when tapped on will display long plot.
 Users can select from the search results in the first screen and add to their watch list which accessible using the drawer menu
 Movies added to the Watch List saved locally in SQLite database.
 
-![](img_4.png)
+![](assets/images/img_4.png)
 
 
 **(Movies Genre) Screens**
 
 Movies added to the Watch list screen can be categorized using their genre, each genre should have a separate screen
 
-![](img_11.png)
-![](img_5.png)
-![](img_6.png)
-![](img_7.png)
+![](assets/images/img_11.png)
+![](assets/images/img_5.png)
+![](assets/images/img_6.png)
+![](assets/images/img_7.png)
 
 
 **(Search Watch List) Screen**
 
 In this screen, users can search their watch list using title, genre, year, or rating.
 
-![](img_12.png)
-![](img_9.png)
-![](img_10.png)
+![](assets/images/img_12.png)
+![](assets/images/img_9.png)
+![](assets/images/img_10.png)
 
 used technologies : flutter, SQLite
